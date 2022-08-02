@@ -3,7 +3,7 @@
 from app import db
 from models.base import BaseModel
 
-ANIME_FILM_TABLE_NAME = "AnimeFilms"
+ANIME_FILM_TABLE_NAME = "animeFilms"
 
 # AnimeModel EXTENDS BaseModel and db.Model. Extending db.Model lets Flask-SQLAlchemy KNOW about our model, so it can use it.
 class AnimeFilmModel(db.Model, BaseModel):
