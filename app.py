@@ -1,9 +1,10 @@
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from config.environment import db_URI
 from flask_marshmallow import Marshmallow 
+from flask_bcrypt import Bcrypt
 
+from config.environment import db_URI
 
 app = Flask(__name__)
 
@@ -18,7 +19,10 @@ db = SQLAlchemy(app)
 
 ma = Marshmallow(app)
 
-from controllers import animeFilms, genres
+bcrypt = Bcrypt(app)
+
+from controllers import animeFilms, genres, users
 
 app.register_blueprint(animeFilms.router, url_prefix="/api")
 app.register_blueprint(genres.router, url_prefix="/api")
+app.register_blueprint(users.router, url_prefix="/api")

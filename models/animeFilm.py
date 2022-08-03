@@ -7,13 +7,13 @@ from models.animeFilm_genre import animeFilm_genre
 # ! Gotta import NoteModel in here, for like 18 to create the relationship.
 from models.genre import GenreModel
 
-ANIME_FILM_TABLE_NAME = "animeFilms"
+
 
 # AnimeModel EXTENDS BaseModel and db.Model. Extending db.Model lets Flask-SQLAlchemy KNOW about our model, so it can use it.
 class AnimeFilmModel(db.Model, BaseModel):
 
   # This will be used DIRECTLY to make a TABLE in Postgresql
-  __tablename__ = ANIME_FILM_TABLE_NAME
+  __tablename__ = "animeFilms"
 
   # Specific columns for our Anime Table.
   title = db.Column(db.Text, nullable=False, unique=True)
