@@ -2,4 +2,4 @@
 # localhost:5432: is postgress's port
 db_URI = "postgresql://postgres:laleh@localhost:5432/animeFilms_db"
 
-# secret = "thisismyverysecretsecret"
+secret = "thisismyverysecretsecret"
