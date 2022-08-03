@@ -17,3 +17,5 @@ class AnimeFilmSchema(ma.SQLAlchemyAutoSchema):
 
 # This will nest comments inside of animeFilm First argument is the name of schema to nest. Second argument is if there's a list many=True
     comments = fields.Nested("CommentSchema", many=True)
+    
+    genres = fields.Nested("GenreSchema", many=True)
