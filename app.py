@@ -18,6 +18,7 @@ db = SQLAlchemy(app)
 
 ma = Marshmallow(app)
 
-from controllers import animeFilms
+from controllers import animeFilms, genres
 
 app.register_blueprint(animeFilms.router, url_prefix="/api")
+app.register_blueprint(genres.router, url_prefix="/api")
