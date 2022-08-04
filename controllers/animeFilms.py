@@ -15,6 +15,8 @@ from serializers.animeFilm import AnimeFilmSchema
 from serializers.comment import CommentSchema
 from serializers.genre import GenreSchema
 
+from middleware.secure_route import secure_route
+
 
 animeFilm_schema = AnimeFilmSchema()
 comment_schema = CommentSchema()
@@ -44,6 +46,7 @@ def get_single_animeFilm(animeFilm_id):
 
 #? POST An Anime Film!
 @router.route("/animeFilms", methods=["POST"])
+@secure_route
 def create_animeFilm():
     animeFilm_dictionary = request.json
     try:
@@ -58,6 +61,7 @@ def create_animeFilm():
 
 #? PUT an Anime Film
 @router.route("/animeFilms/<int:animeFilm_id>", methods=["PUT"])
+@secure_route
 def update_animeFilm(animeFilm_id):
     animeFilm_dictionary = request.json
     existing_animeFilm = AnimeFilmModel.query.get(animeFilm_id)
@@ -77,6 +81,7 @@ def update_animeFilm(animeFilm_id):
 
 #? DELETE an Anime Film
 @router.route("/animeFilms/<int:animeFilm_id>", methods=["DELETE"])
+@secure_route
 def remove_animeFilm(animeFilm_id):
     animeFilm = AnimeFilmModel.query.get(animeFilm_id)
 
@@ -92,6 +97,7 @@ def remove_animeFilm(animeFilm_id):
 
 #? POST A Comment 
 @router.route('/animeFilms/<int:animeFilm_id>/comments', methods=['POST'])
+@secure_route
 def create_comment(animeFilm_id):
   comment_dictionary = request.json
   
@@ -107,6 +113,7 @@ def create_comment(animeFilm_id):
 
 #? PUT a Comment
 @router.route("/animeFilms/<int:animeFilm_id>/comments/<int:comment_id>", methods=["PUT"])
+@secure_route
 def update_comment(animeFilm_id, comment_id):
 
     comment_dictionary = request.json
@@ -136,6 +143,7 @@ def update_comment(animeFilm_id, comment_id):
 
 #? DELETE a Comment
 @router.route("/animeFilms/<int:animeFilm_id>/comments/<int:comment_id>", methods=["DELETE"])
+@secure_route
 def remove_comment(animeFilm_id, comment_id):
 
     comment = CommentModel.query.get(comment_id)
@@ -157,6 +165,7 @@ def remove_comment(animeFilm_id, comment_id):
 
 #? Creating a relationship) between animeFilm and Genre *****
 @router.route("/animeFilms/<int:animeFilm_id>/genres/<int:genre_id>", methods=["POST"])
+@secure_route
 def create_animeFilm_genre(animeFilm_id, genre_id):
     
 # This assumes both the genre and the animeFilm exists. 

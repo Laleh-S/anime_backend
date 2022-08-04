@@ -54,6 +54,6 @@ class UserModel(db.Model, BaseModel):
             algorithm="HS256",
         )
 
-        # print(token, type(token))
+      print(token, type(token))
 
       return token
