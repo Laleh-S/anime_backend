@@ -3,8 +3,9 @@
 # * Flask's router is called Blueprint
 
 # from typing_extensions import Self
+from curses.ascii import HT
 from http import HTTPStatus
-from flask import Blueprint, request
+from flask import Blueprint, request, g
 from marshmallow.exceptions import ValidationError
 
 from models.animeFilm import AnimeFilmModel
@@ -22,8 +23,6 @@ animeFilm_schema = AnimeFilmSchema()
 comment_schema = CommentSchema()
 
 router = Blueprint("animeFilms", __name__)
-STATUS_NOT_FOUND = 404
-STATUS_CREATED = 201
 
 
 
@@ -39,7 +38,7 @@ def get_animeFilms():
 def get_single_animeFilm(animeFilm_id):
     animeFilm = AnimeFilmModel.query.get(animeFilm_id)
     if not animeFilm:
-      return { "message": "Anime film not found" }, STATUS_NOT_FOUND
+      return { "message": "Anime film not found" }, HTTPStatus.NOT_FOUND
 
     return animeFilm_schema.jsonify(animeFilm)
 
@@ -55,8 +54,9 @@ def create_animeFilm():
     except ValidationError as e:
       return { "errors": e.messages, "message": "Something went wrong" }
 
+    animeFilm.user_id = g.current_user.id
     animeFilm.save()   # save animeFilm , using the methods defined in BaseModel
-    return animeFilm_schema.jsonify(animeFilm), STATUS_CREATED   
+    return animeFilm_schema.jsonify(animeFilm), HTTPStatus.CREATED 
 
 
 #? PUT an Anime Film
@@ -68,6 +68,9 @@ def update_animeFilm(animeFilm_id):
 
     if not existing_animeFilm:
         return {"message": "Anime not found"}, HTTPStatus.NOT_FOUND
+    
+    if not g.current_user.id == existing_animeFilm.user_id:
+        return {"message": "Not your anime!"}, HTTPStatus.UNAUTHORIZED
 
     try:
         animeFilm = animeFilm_schema.load(animeFilm_dictionary, instance=existing_animeFilm, partial=True)
@@ -106,7 +109,9 @@ def create_comment(animeFilm_id):
 
   except ValidationError as e:
     return { "errors": e.messages, "message": "Something went wrong" }
+    
   comment.animeFilm_id = animeFilm_id
+  comment.user_id = g.current_user.id
   comment.save()
   return comment_schema.jsonify(comment),  HTTPStatus.CREATED
 

@@ -16,4 +16,4 @@ class CommentModel(db.Model, BaseModel):
     # #  This line is for serialization. Tells our comment about our animeFilm model. Assosciates 2 models together.
     # #  It won't make a new column, but instead, specifies a relationship between 2 models.
     # # ? backref should be the table name of this current table.
-    animeFilm = db.relationship("AnimeFilmModel", backref="comments", cascade="all, delete")
+    # animeFilm = db.relationship("AnimeFilmModel", backref="comments", cascade="all, delete")

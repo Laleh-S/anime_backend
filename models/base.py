@@ -1,5 +1,5 @@
 from app import db  # <- this means we are importing the object we created -> db = SQLAlchemy(app) from app.py file.
-from datetime import *
+from datetime import datetime
 
 #  - Flask SQLAlchemy will create tables based on these models.
 # below class will have all the COMMON fields that EVERY model will use.
