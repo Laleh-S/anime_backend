@@ -1,4 +1,4 @@
-from models.animeFilm import AnimeFilmModel
+from models.anime import animeModel
 from models.comment import CommentModel
 from models.genre import GenreModel
 
@@ -11,9 +11,9 @@ scifi_genre = GenreModel(name="sci-fi")
 
 
 
-animeFilms_list = [
+animes_list = [
 
-  AnimeFilmModel(
+  animeModel(
     title="Princess Mononoke", 
     original_title= "もののけ姫", 
     image= "https://image.tmdb.org/t/p/w600_and_h900_bestv2/jHWmNr7m544fJ8eItsfNk8fs2Ed.jpg",
@@ -25,7 +25,7 @@ animeFilms_list = [
     user_id=1
   ),
 
-  AnimeFilmModel(
+  animeModel(
     title= "Spirited Away", 
     original_title= "千と千尋の神隠し", 
     image= "https://image.tmdb.org/t/p/w600_and_h900_bestv2/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg",
@@ -37,7 +37,7 @@ animeFilms_list = [
     user_id=1
   ),
 
-    AnimeFilmModel(
+    animeModel(
     title= "Howl's Moving Castle", 
     original_title= "ハウルの動く城", 
     image= "https://image.tmdb.org/t/p/w600_and_h900_bestv2/TkTPELv4kC3u1lkloush8skOjE.jpg",
@@ -49,7 +49,7 @@ animeFilms_list = [
     user_id=1
     ),
 
-    AnimeFilmModel(
+    animeModel(
     title= "My Neighbor Totoro", 
     original_title= "となりのトトロ", 
     image= "https://image.tmdb.org/t/p/w600_and_h900_bestv2/rtGDOeG9LzoerkDGZF9dnVeLppL.jpg",
@@ -61,7 +61,7 @@ animeFilms_list = [
     user_id=1
     ),
 
-    AnimeFilmModel(
+    animeModel(
     title= "Castle In The Sky", 
     original_title= "天空の城ラピュタ", 
     image= "https://image.tmdb.org/t/p/w600_and_h900_bestv2/npOnzAbLh6VOIu3naU5QaEcTepo.jpg",
@@ -73,7 +73,7 @@ animeFilms_list = [
     user_id=1
     ),
 
-    AnimeFilmModel(
+    animeModel(
     title= "The Girl Who Leaped Throught Time", 
     original_title= "時をかける少女", 
     image= "https://flxt.tmsimg.com/assets/p8471376_p_v8_ab.jpg",
@@ -89,6 +89,6 @@ animeFilms_list = [
 
 
 comments_list = [
-  CommentModel(content="This is a great anime", animeFilm_id=1)
+  CommentModel(content="This is a great anime", anime_id=1, user_id=1)
 ]
 

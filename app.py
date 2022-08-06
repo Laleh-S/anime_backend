@@ -21,8 +21,8 @@ ma = Marshmallow(app)
 
 bcrypt = Bcrypt(app)
 
-from controllers import animeFilms, genres, users
+from controllers import animes, genres, users
 
-app.register_blueprint(animeFilms.router, url_prefix="/api")
+app.register_blueprint(animes.router, url_prefix="/api")
 app.register_blueprint(genres.router, url_prefix="/api")
 app.register_blueprint(users.router, url_prefix="/api")
