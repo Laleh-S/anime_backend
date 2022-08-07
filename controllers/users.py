@@ -42,7 +42,7 @@ def login():
         # Make a token
         token = user.generate_token()
         # Send it back
-        return {"token": token, "message": "Welcome back!"}
+        return {"user_id": user.id, "token": token, "message": "Welcome back!"}
     
     except Exception as e:
         return { "messages": "Something went wrong" }
