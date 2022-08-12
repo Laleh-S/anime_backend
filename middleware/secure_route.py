@@ -12,6 +12,8 @@ def secure_route(route_func):
     def decorated_function(*args, **kwargs):
         # ! Doing secure route specific stuff to validate my token
         raw_token = request.headers.get("Authorization")
+        print("TOKEN", raw_token)
+        print("HEADERS", request.headers)
         # ! Checking token exists
         if not raw_token:
             return {"message": "Unauthorized"}, HTTPStatus.UNAUTHORIZED

@@ -14,14 +14,24 @@ def register():
   
     try:
         user_dictionary = request.json
-        user = user_schema.load(user_dictionary)
+        print('USER DICTIONARY', user_dictionary)
+        if (user_dictionary['password'] != user_dictionary['passwordConfirmation']):
+          raise ValidationError('password and password confirmation don\'t match')
+        user = user_schema.load({
+          'username': user_dictionary['username'],
+          'email': user_dictionary['email'],
+          'password': user_dictionary['password']
+        })
         user.save()
+        print('USER', user)
         return user_schema.jsonify(user)
     # Specific error
     except ValidationError as e:
+        print('VALIDATION ERROR', e.messages)
         return {"errors": e.messages, "messages": "Something went wrong"}
     # General error
     except Exception as e:
+        print('EXCEPTION', e.messages)
         return { "messages": "Something went wrong" }
 
 

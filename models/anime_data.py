@@ -8,10 +8,23 @@ adventure_genre = GenreModel(name="adventure")
 fantasy_genre = GenreModel(name="fantasy")
 romance_genre = GenreModel(name="romance")
 scifi_genre = GenreModel(name="sci-fi")
+drama_genre = GenreModel(name="drama")
 
 
 
 animes_list = [
+
+  animeModel(
+    title="Fireworks", 
+    original_title= "打ち上げ花火、下から見るか？横から見るか？", 
+    image= "https://flxt.tmsimg.com/assets/p15453026_p_v13_ab.jpg",
+    director= "Akiyuki Shinbō, Nobuyuki Takeuchi",  
+    producer= "Junnosuke Ito, Akiko Yodo", 
+    release_date= "2017", 
+    description="It's summer, and Norimichi Shimada and his friends want to know if fireworks look round or flat from the side. They forge a plan to find the answer at Moshimo Festival's fireworks display. However, Norimichi finds himself conflicted when his classmate, Nazuna Oikawa, plans to run away from home and wants Norimichi to join her. When things go awry in their attempt to escape, a strange orb in Nazuna's possession gives them another chance at staying together.", 
+    genres=[drama_genre, romance_genre],
+    user_id=1
+  ),
 
   animeModel(
     title="Princess Mononoke", 
@@ -45,10 +58,21 @@ animes_list = [
     producer= "Arimasa Okada, Keiko Matsushita, Mariko Noguchi, Motoki Mukaichi",
     release_date= "2012", 
     description= "After the unexpected death of her father, 11-year-old Momo Miyaura leaves Tokyo with her mother and moves to an old remote island in Seto Inland Sea. The only memento she has from her father is an unfinished letter with only two words inside: ‘Dear Momo’ along with her heart's unrest from it. In the new and unfamiliar small town, Momo reluctantly tries to adjust to the outmoded wooden buildings, silent crop fields, and mysterious isolated shrines. One day, while exploring the attic of her new home, she finds a worn out picture book about youkai. Following this discovery, strange things begin to happen around town, and Momo is greeted by the arrival of three troublesome youkai.",
-    genres=[fantasy_genre, adventure_genre],
+    genres=[fantasy_genre, drama_genre],
     user_id=1
     ),
 
+    animeModel(
+    title="5 Centimeters Per Second", 
+    original_title= "秒速５センチメートル", 
+    image= "https://www.themoviedb.org/t/p/original/dFipUR6W0y3PPkuVS8gjFd929m2.jpg",
+    director= "Makoto Shinkai",  
+    producer= "	Makoto Shinkai", 
+    release_date= "2007", 
+    description="What happens when two people love each other but just aren't meant to be together? Takaki Toono and Akari Shinohara are childhood friends, but circumstances beyond their control tear them apart. They promise to stay in contact, and although the progression of time widens the distance between them, the chain of memories remains ever-present. 5 Centimeters Per Second is a romantic drama that focuses on the mundane and harsh reality of long-distance relationships. Stuck in the past and unable to make any new memories, Takaki and Akari cling to the hope of seeing each other again. They live their everyday lives half-heartedly, both hurting themselves and the people around them.", 
+    genres=[romance_genre, drama_genre],
+    user_id=1
+  ),
 
     animeModel(
     title="Howl's Moving Castle", 
@@ -69,7 +93,7 @@ animes_list = [
     producer= "Noritaka Kawaguchi",
     release_date= "2013", 
     description= "On a rainy morning in Tokyo, Takao Akizuki, an aspiring shoemaker, decides to skip class to sketch designs in a beautiful garden. This is where he meets Yukari Yukino, a beautiful yet mysterious woman, for the very first time. Offering to make her new shoes, Takao continues to meet with Yukari throughout the rainy season, and without even realizing it, the two are able to alleviate the worries hidden in their hearts just by being with each other. However, their personal struggles have not disappeared completely, and as the end of the rainy season approaches, their relationship will be put to the test.",
-    genres=[fantasy_genre, adventure_genre],
+    genres=[romance_genre, drama_genre],
     user_id=1
   ),
 
@@ -93,7 +117,7 @@ animes_list = [
     producer= "Koichiro Ito, Katsuhiro Takei",
     release_date= "2016", 
     description= "Mitsuha, a high school girl living in a rural town deep in the mountains, has a dream that she is a boy living an unfamiliar life in Tokyo. Taki, a high school boy living in Tokyo, dreams that he is a girl living in the mountains. As they realize they are changing places, their encounter sets the cogs of fate into motion.",
-    genres=[fantasy_genre, adventure_genre],
+    genres=[fantasy_genre, romance_genre],
     user_id=1
     ),
 
