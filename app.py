@@ -5,6 +5,11 @@ from flask_marshmallow import Marshmallow
 from flask_bcrypt import Bcrypt
 
 from config.environment import db_URI
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
+
 
 app = Flask(__name__)
 
@@ -26,3 +31,10 @@ from controllers import animes, genres, users
 app.register_blueprint(animes.router, url_prefix="/api")
 app.register_blueprint(genres.router, url_prefix="/api")
 app.register_blueprint(users.router, url_prefix="/api")
+
+
+
+
+
+
+

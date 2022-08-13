@@ -12,6 +12,8 @@ marshmallow-sqlalchemy = "*"
 marshmallow = "*"
 flask-bcrypt = "*"
 pyjwt = "*"
+sqlalchemy = "==1.3.23"
+flask-cors = "*"
 
 [dev-packages]
 
