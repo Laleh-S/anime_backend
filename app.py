@@ -10,9 +10,6 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-
-app = Flask(__name__)
-
 # Configuring it with flask. Telling flask-sqlalchemy where the database lives in our machine.
 app.config["SQLALCHEMY_DATABASE_URI"] = db_URI 
 # Removes a warning for a part of the library that we are not using.
